@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
 
-  <title>{% trans "Example Quiz Website" %} | {% block title %}{% endblock %}</title>
+  <title>{% trans "PFSD B-21 Quiz App" %} | {% block title %}{% endblock %}</title>
   <meta name="description" content="{% block description %}{% endblock %}">
 
   <!-- styles -->
@@ -18,10 +18,126 @@
 <![endif]-->
 
 </head>
+<style>
+.button-85 {
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  color: rgb(0, 0, 0);
+  background: #FFFFFF;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
 
-<body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="{% url 'index' %}">Quiz App</a>
+.button-85:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button-85 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowing-button-85 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+.button {
+  background-color: #1c87c9;
+  -webkit-border-radius: 60px;
+  border-radius: 60px;
+  border: none;
+  color: #eeeeee;
+  cursor: pointer;
+  display: inline-block;
+  font-family: sans-serif;
+  font-size: 20px;
+  padding: 5px 15px;
+  text-align: center;
+  text-decoration: none;
+}
+@keyframes glowing {
+  0% {
+    background-color: #2ba805;
+    box-shadow: 0 0 3px #2ba805;
+  }
+  50% {
+    background-color: #49e819;
+    box-shadow: 0 0 10px #49e819;
+  }
+  100% {
+    background-color: #2ba805;
+    box-shadow: 0 0 3px #2ba805;
+  }
+}
+.display{ inline-block;
+                outline: 0;
+                border:0;
+                cursor: pointer;
+                text-decoration: none;
+                position: relative;
+                color: #000;
+                background: #fff;
+                line-height: 30px;
+                border-radius: 40px;
+                padding: 20px;
+                font-size: 30px;
+                font-weight: 600;
+                box-shadow: rgb(255, 198, 0) -2px -2px 0px 2px, rgb(246, 84, 174) 0px 0px 0px 4px, rgba(0, 0, 0, 0.05) 0px 0px 2px 7px;
+                transition: all 0.2s;
+                hover{
+                    box-shadow: rgb(246, 84, 174) -2px -2px 0px 2px, rgb(255, 198, 0) 0px 0px 0px 4px, rgba(0, 0, 0, 0.05) 0px 0px 2px 7px;
+                    transform: scale(1.01);
+                }
+                }
+.button-85:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #FFFFFF;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+</style>
+<body style="background-color: #4158D0;background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 22%, #FFCC70 49%, #ffffff 90%);background-attachment: fixed; ">
+  <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #D9AFD9;background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
+">
+    <a class="navbar-brand" href="{% url 'index' %}">Batch-21's Quiz App</a>
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
       aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -46,6 +162,7 @@
           <a class="nav-link" href="{% url 'login' %}">Login</a>
           {% endif %}
         </li>
+        <a class="nav-link" href="http://127.0.0.1:8000/admin/">Admin/Teacher</a>
       </ul>
     </div>
   </nav>
